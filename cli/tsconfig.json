@@ -1,0 +1,7 @@
+{
+   "extends": "..",
+   "compilerOptions": {
+      "outDir": "dist",
+      "lib": ["ES6"]
+   }
+}

@@ -1,0 +1,11 @@
+{
+   "private": true,
+   "name": "@mint2d/core",
+   "version": "0.1.0",
+   "license": "MIT",
+   "main": "./dist",
+   "scripts": {
+      "build": "tsc",
+      "serve": "tsc -w"
+   }
+}

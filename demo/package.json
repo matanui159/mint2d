@@ -1,0 +1,17 @@
+{
+   "private": true,
+   "name": "@mint2d/demo",
+   "version": "1.0.0",
+   "license": "MIT",
+   "dependencies": {
+      "@mint2d/core": "*"
+   },
+   "scripts": {
+      "build": "node ../cli/dist build",
+      "serve": "ts-node-dev ../cli/src serve"
+   },
+   "mint": {
+      "input": "src",
+      "output": "dist"
+   }
+}
