@@ -7,11 +7,6 @@ export async function serveCommand(): Promise<void> {
    const config = await getWebpackConfig();
    const serve = mintConfig.serve ?? {};
 
-   const compiler = webpack({
-      ...config,
-      mode: 'development'
-   });
-
    new WebpackDevServer(webpack({
       ...config,
       mode: 'development'

@@ -4,23 +4,23 @@ import TerserWebpackPlugin from 'terser-webpack-plugin';
 
 export async function buildCommand(): Promise<void> {
    const config = await getWebpackConfig();
+   const terser = new TerserWebpackPlugin({
+      terserOptions: {
+         compress: {
+            ecma: 2015,
+            unsafe: true
+         },
+         mangle: {
+            properties: true
+         }
+      }
+   });
+
    webpack({
       ...config,
       mode: 'production',
       optimization: {
-         minimizer: [
-            new TerserWebpackPlugin({
-               terserOptions: {
-                  compress: {
-                     ecma: 2015,
-                     unsafe: true
-                  },
-                  mangle: {
-                     properties: true
-                  }
-               }
-            })
-         ]
+         minimizer: [terser]
       }
    }, (error, stats) => {
       if (error) {

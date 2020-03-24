@@ -13,6 +13,7 @@ const usage = 'mint2d {help|build|serve}';
 if (process.argv.length !== 3) {
    throw new UsageError(usage);
 }
+
 switch (process.argv[2]) {
    case 'help':
    case '--help':
