@@ -6,6 +6,7 @@ import path from 'path';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { promises as fs } from 'fs';
+import { SpinnerPlugin } from './spinner-plugin';
 
 export interface MintConfig {
    configPath: string;
@@ -82,6 +83,7 @@ export async function getWebpackConfig(): Promise<webpack.Configuration> {
       },
 
       plugins: [
+         new SpinnerPlugin(),
          new CleanWebpackPlugin(),
          new HtmlWebpackPlugin({
             template: path.join(mintConfig.configPath, 'index.html')

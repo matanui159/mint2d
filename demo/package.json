@@ -7,8 +7,9 @@
       "@mint2d/core": "*"
    },
    "scripts": {
-      "build": "node ../cli/dist build",
-      "serve": "ts-node-dev ../cli/src serve"
+      "mint2d": "node ../cli/dist",
+      "build": "yarn mint2d build",
+      "serve": "yarn mint2d serve"
    },
    "mint": {
       "input": "src",

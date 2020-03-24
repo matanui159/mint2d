@@ -9,8 +9,10 @@
    "dependencies": {
       "chalk": "^3.0.0",
       "clean-webpack-plugin": "^3.0.0",
+      "compression-webpack-plugin": "^3.1.0",
       "cosmiconfig": "^6.0.0",
       "html-webpack-plugin": "^4.0.1",
+      "ora": "^4.0.3",
       "schema-utils": "^2.6.5",
       "terser-webpack-plugin": "^2.3.5",
       "ts-loader": "^6.2.2",
@@ -19,13 +21,13 @@
       "webpack-dev-server": "^3.10.3"
    },
    "devDependencies": {
+      "@types/compression-webpack-plugin": "^2.0.1",
       "@types/html-minifier-terser": "^5.0.0",
       "@types/json-schema": "^7.0.4",
       "@types/node": "^13.9.3",
       "@types/terser-webpack-plugin": "^2.2.0",
       "@types/webpack": "^4.41.8",
-      "@types/webpack-dev-server": "^3.10.1",
-      "ts-node-dev": "^1.0.0-pre.44"
+      "@types/webpack-dev-server": "^3.10.1"
    },
    "scripts": {
       "build": "tsc"

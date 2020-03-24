@@ -17,7 +17,7 @@
       "build": "run-s build:*",
       "build:serve": "run-s build:serve:*",
       "build:serve:core": "yarn ws:core build",
-      "build:cli": "yarn ws:cli build",
+      "build:serve:cli": "yarn ws:cli build",
       "build:demo": "yarn ws:demo build",
       "serve": "npm-run-all -s build:serve:* -p serve:*",
       "serve:core": "yarn ws:core serve",
