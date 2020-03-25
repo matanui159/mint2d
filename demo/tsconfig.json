@@ -1,7 +1,6 @@
 {
+   "extends": "..",
    "compilerOptions": {
-      "strict": true,
-      "target": "ES6",
-      "moduleResolution": "Node"
+      "declaration": false
    }
 }
