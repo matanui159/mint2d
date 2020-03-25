@@ -7,14 +7,14 @@ class DummyScene extends Scene {
 }
 
 class World {
-   private worldScene: Scene = new DummyScene();
-   private loadingScene = this.worldScene;
+   private currentScene: Scene = new DummyScene();
+   private loadingScene = this.currentScene;
 
    public get scene() {
-      return this.worldScene;
+      return this.currentScene;
    }
 
-   constructor() {
+   public constructor() {
       this.update();
    }
 
@@ -22,9 +22,9 @@ class World {
       this.loadingScene = scene;
       await scene.create();
 
-      const oldScene = this.worldScene;
+      const oldScene = this.currentScene;
       if (this.loadingScene === scene) {
-         this.worldScene = scene;
+         this.currentScene = scene;
       }
       if (destroy) {
          oldScene.destroy();
@@ -33,7 +33,7 @@ class World {
 
    private update(): void {
       requestAnimationFrame(() => {
-         this.worldScene.update();
+         this.currentScene.update();
          this.update();
       });
    }

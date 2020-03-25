@@ -3,6 +3,7 @@
    "license": "MIT",
    "workspaces": [
       "core",
+      "render",
       "cli",
       "demo"
    ],
@@ -12,15 +13,17 @@
    },
    "scripts": {
       "ws:core": "yarn workspace @mint2d/core",
+      "ws:render": "yarn workspace @mint2d/render",
       "ws:cli": "yarn workspace @mint2d/cli",
       "ws:demo": "yarn workspace @mint2d/demo",
       "build": "run-s build:*",
-      "build:serve": "run-s build:serve:*",
-      "build:serve:core": "yarn ws:core build",
-      "build:serve:cli": "yarn ws:cli build",
+      "build:core": "yarn ws:core build",
+      "build:render": "yarn ws:render build",
+      "build:cli": "yarn ws:cli build",
       "build:demo": "yarn ws:demo build",
-      "serve": "npm-run-all -s build:serve:* -p serve:*",
+      "serve": "npm-run-all -s build:cli -p serve:*",
       "serve:core": "yarn ws:core serve",
+      "serve:render": "yarn ws:render serve",
       "serve:demo": "yarn ws:demo serve"
    }
 }

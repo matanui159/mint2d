@@ -17,7 +17,7 @@ export abstract class Scene extends Resource {
       system.create();
    }
 
-   private getSystem<S extends System>(clasz: Class<S>): S {
+   public getSystem<S extends System>(clasz: Class<S>): S {
       for (const system of this.systems) {
          if (system instanceof clasz) {
             return system;

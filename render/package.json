@@ -1,0 +1,14 @@
+{
+   "private": true,
+   "name": "@mint2d/render",
+   "version": "0.1.0",
+   "license": "MIT",
+   "main": "./dist",
+   "scripts": {
+      "build": "tsc",
+      "serve": "tsc -w"
+   },
+   "dependencies": {
+      "@mint2d/core": "*"
+   }
+}

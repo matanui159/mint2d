@@ -3,18 +3,18 @@ import { Entity } from './entity';
 import { Scene } from './scene';
 
 export abstract class System<C extends object = object> extends Resource {
-   private systemScene?: Scene;
+   private parentScene?: Scene;
    protected components = new Map<Entity, C>();
 
    public set scene(scene: Scene) {
-      this.systemScene = scene;
+      this.parentScene = scene;
    }
 
    public get scene(): Scene {
-      if (this.systemScene === undefined) {
-         throw new Error(`Failed to get parent scene for ${this.name}`);
+      if (this.parentScene === undefined) {
+         throw new Error(`System ${this.name} has not been added to a scene`);
       }
-      return this.systemScene;
+      return this.parentScene;
    }
 
    public addComponent(entity: Entity, component: C): void {
