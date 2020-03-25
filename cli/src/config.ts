@@ -12,6 +12,7 @@ export interface MintConfig {
    configPath: string;
    input: string;
    output: string;
+   title?: string;
 
    serve?: {
       host?: string;
@@ -25,7 +26,16 @@ const configSchema: JSONSchema7 = {
    type: 'object',
    properties: {
       input: { type: 'string' },
-      output: { type: 'string' }
+      output: { type: 'string' },
+      title: { type: 'string' },
+      serve: {
+         type: 'object',
+         properties: {
+            host: { type: 'string' },
+            port: { type: 'number' }
+         },
+         additionalProperties: false
+      }
    },
    required: ['input', 'output'],
    additionalProperties: false
@@ -57,6 +67,7 @@ export async function getMintConfig(): Promise<MintConfig> {
 
 export async function getWebpackConfig(): Promise<webpack.Configuration> {
    const mintConfig = await getMintConfig();
+
    return {
       entry: path.join(mintConfig.configPath, mintConfig.input),
 
@@ -86,7 +97,8 @@ export async function getWebpackConfig(): Promise<webpack.Configuration> {
          new SpinnerPlugin(),
          new CleanWebpackPlugin(),
          new HtmlWebpackPlugin({
-            template: path.join(mintConfig.configPath, 'index.html')
+            template: require.resolve('../index.ejs'),
+            title: mintConfig.title ?? 'Mint2D Game'
          })
       ],
 

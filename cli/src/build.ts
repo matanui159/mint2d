@@ -1,5 +1,5 @@
 import webpack from 'webpack';
-import { getWebpackConfig } from './config';
+import { getWebpackConfig, getMintConfig } from './config';
 import TerserWebpackPlugin from 'terser-webpack-plugin';
 import CompressionWebpackPlugin from 'compression-webpack-plugin';
 
@@ -7,9 +7,15 @@ export async function buildCommand(): Promise<void> {
    const config = await getWebpackConfig();
    const terser = new TerserWebpackPlugin({
       terserOptions: {
+         ecma: 2015,
          compress: {
-            ecma: 2015,
-            unsafe: true
+            booleans_as_integers: true,
+            unsafe: true,
+            unsafe_math: true,
+            unsafe_comps: true,
+            unsafe_symbols: true,
+            unsafe_arrows: true,
+            unsafe_methods: true
          },
          mangle: {
             properties: true
